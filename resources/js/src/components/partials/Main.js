@@ -29,9 +29,9 @@ const Main = () => {
                       <Card.Title>Card Title {item}</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
                       <Card.Text>
-                        Some quick example text to build on the card 
+                        $99
                       </Card.Text>
-                      <button class="button button-small " type="button">Add To Basket</button>
+                      <button class="button button-small black-button" type="button">Add To Basket</button>
                     </Card.Body>
                   </Card>
                 </Col>
