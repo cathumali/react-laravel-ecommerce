@@ -13,7 +13,7 @@ const Heroes = () => {
                 <h1 className="display-4 fw-bold lh-1">Shop with ease </h1>
                 <p className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit.</p>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                    <button type="button" className="btn btn-outline-secondary btn-lg px-4">Shop Now</button>
+                    <button type="button" className="button">Shop Now</button>
                 </div>
             </div>
             <div className="col-lg-5 p-0 overflow-hidden ">
