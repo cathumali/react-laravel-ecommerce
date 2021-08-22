@@ -5682,6 +5682,23 @@ var Header = function Header() {
             className: "me-3 py-2 text-dark text-decoration-none",
             to: "/account",
             children: "Account"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            className: "me-3 py-2 text-dark text-decoration-none",
+            to: "/cart",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+              className: "w-6 h-6",
+              width: 24,
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24",
+              xmlns: "http://www.w3.org/2000/svg",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              })
+            })
           })]
         })]
       })
