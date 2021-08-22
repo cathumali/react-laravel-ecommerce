@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import { Row, Col, Card } from 'react-bootstrap';
 import product from '../../images/items/product1.jpg';
-import Heroes from '../partials/Heroes';
 
 const style = {
   backgroundImage:`url(${product})`,
@@ -10,16 +9,15 @@ const style = {
   backgroundPosition: "center",
   height: "18rem",
 }
-const Main = () => {
+const Featured = () => {
     return (<>
-        <Heroes />
         <main>
-          <h2 class="pb-2 ">Featured Products</h2>
+          <h2 class="pb-2 ">Featured Items</h2>
           <Row className="mb-3 ">   
             { _.range(1,5).map( (item, key) => {
               return (<React.Fragment key={key}>
-                <Col xs={6} md={3}>
-                  <Card className="mb-4 p-4 " >
+                <Col xs={12} sm={6} md={4} lg={3}>
+                  <Card className="mb-4 p-2" >
                     <div className="product-display" >
                       <div className="product-display-img" style={style}>
                         {/* <Card.Img variant="top" src={`${product}`} /> */}
@@ -41,4 +39,4 @@ const Main = () => {
         </main>
     </>)
 }
-export default Main;
+export default Featured;
