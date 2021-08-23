@@ -1,7 +1,7 @@
 import React from 'react'; 
 import Heroes from '../partials/Heroes';
-import Featured from '../partials/Featured';
-import Recommended from '../partials/Recommended';
+import Featured from '../pages/Featured';
+import Recommended from '../pages/Recommended';
 
 const Home = (props) => {
     return <>  
