@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ItemsController;
+use App\Http\Controllers\API\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\API\ItemsController;
 Route::middleware('api')->group(function () {
     Route::resource('items', Api\ItemsController::class); 
     // Route::get('items', [ItemsController::class, 'index']);
+    Route::resource('categories', Api\CategoriesController::class); 
 
 });
 

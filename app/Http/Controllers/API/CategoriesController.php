@@ -1,84 +1,70 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use Validator;
+use App\Models\Categories;
+use App\Http\Resources\Categories as CategoriesResource;
 
 class CategoriesController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $categories = Categories::all();
+        return $this->sendResponse(CategoriesResource::collection($categories), 'Posts fetched.');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+        if($validator->fails()){
+            return $this->sendError($validator->errors());       
+        }
+        $category = Categories::create($input);
+        return $this->sendResponse(new CategoriesResource($category), 'Post created.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
-        //
+        $category = Categories::find($id);
+        if (is_null($category)) {
+            return $this->sendError('Post does not exist.');
+        }
+        return $this->sendResponse(new CategoriesResource($category), 'Post fetched.');
     }
+    
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, Categories $category)
     {
-        //
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return $this->sendError($validator->errors());       
+        }
+
+        $category->title = $input['title'];
+        $category->description = $input['description'];
+        $category->save();
+        
+        return $this->sendResponse(new CategoriesResource($category), 'Post updated.');
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   
+    public function destroy(Categories $category)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $category->delete();
+        return $this->sendResponse([], 'Post deleted.');
     }
 }

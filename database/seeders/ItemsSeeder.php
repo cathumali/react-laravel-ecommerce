@@ -22,7 +22,7 @@ class ItemsSeeder extends Seeder
                 'description' => $this->getRandomString(20),
                 'price' => rand(1, 100),
                 'category_id' => rand(1, 4),
-                'image' => '/images/items/'.$count.'.jpg',
+                'image' => '/images/items/product'.$count.'.jpg',
             ];
 
             $items = Items::create($data);
