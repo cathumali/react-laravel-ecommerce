@@ -15,8 +15,8 @@ const Header = () => {
                 <Link className="me-3 py-2 text-dark text-decoration-none" to="/featured">Featured</Link> 
                 <Link className="me-3 py-2 text-dark text-decoration-none" to="/recommended">Recommended</Link> 
                 <Link className="me-3 py-2 text-dark text-decoration-none position-relative cart" to="/cart">
-                    <span class="badge badge-pill badge-warning">0</span>
-                    <svg className="w-6 h-6" width={24} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span className="badge badge-pill badge-warning">0</span>
+                    <svg className="w-6 h-6" width={24} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                 </Link>
             </nav>
             </div> 

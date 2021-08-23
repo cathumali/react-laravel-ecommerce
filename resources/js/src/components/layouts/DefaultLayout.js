@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react'; 
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { fetchItems } from '../../redux/actions';
 
 const DefaultLayout = (props) => {
+    useEffect(() => {
+        props.fetchItems()
+    },[]);
     return <Container className="py-3 default-layout">    
                 <Header />
                 { props.children }
                 <Footer />
             </Container>
 }
-export default DefaultLayout;
+const mapStateToProps = ( state ) => ({
+    cart : state.cart_data 
+ });
+ const mapDispatchToProps = (dispatch) => ({
+    fetchItems  : () => dispatch( fetchItems() ),
+ });
+ export default connect( mapStateToProps, mapDispatchToProps )(DefaultLayout)

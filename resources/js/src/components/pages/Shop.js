@@ -28,7 +28,7 @@ const Shop = () => {
                       <Card.Text>
                         $99
                       </Card.Text>
-                      <button class="button button-small black-button" type="button">Add To Basket</button>
+                      <button className="button button-small black-button" type="button">Add To Basket</button>
                     </Card.Body>
                   </Card>
                 </Col>

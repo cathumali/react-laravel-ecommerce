@@ -12,7 +12,7 @@ const style = {
 const Recommended = () => {
     return (<>
         <main>
-          <h2 class="pb-2 ">Recommended Items</h2>
+          <h2 className="pb-2 ">Recommended Items</h2>
           <Row className="mb-3 ">   
             { _.range(1,5).map( (item, key) => {
               return (<React.Fragment key={key}>
@@ -27,7 +27,7 @@ const Recommended = () => {
                       <Card.Text>
                         $99
                       </Card.Text>
-                      <button class="button button-small black-button" type="button">Add To Basket</button>
+                      <button className="button button-small black-button" type="button">Add To Basket</button>
                     </Card.Body>
                   </Card>
                 </Col>
