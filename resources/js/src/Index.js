@@ -11,6 +11,12 @@ import Shop from './components/pages/Shop';
 import Featured from './components/pages/Featured';
 import Recommended from './components/pages/Recommended';
 
+import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from "redux-thunk";
+import rootReducer from "./redux/reducers/index"; 
+
 function Index() {
     return (<>
         <Router>
@@ -28,6 +34,22 @@ function Index() {
 
 export default Index;
 
+
+const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk)
+);
+const store = createStore(rootReducer, enhancer);
+
 if (document.getElementById('index')) {
-    ReactDOM.render(<Index />, document.getElementById('index'));
+    ReactDOM.render(
+        <>
+          <Provider store={store}>
+            <BrowserRouter> 
+                <Index />
+            </BrowserRouter>
+          </Provider>
+        </>,
+        document.getElementById('index')
+      );
 }
