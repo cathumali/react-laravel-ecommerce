@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\API\ItemsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,7 +16,12 @@ use App\Http\Controllers\ItemsController;
 */
 
 
-Route::resource('items', 'ItemsController'); 
+
+Route::middleware('api')->group(function () {
+    Route::resource('items', Api\ItemsController::class); 
+    // Route::get('items', [ItemsController::class, 'index']);
+
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
