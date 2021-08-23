@@ -1,31 +1,35 @@
 import React from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
 import { Row, Col, Card } from 'react-bootstrap';
-import product from '../../images/items/product2.jpg';
 
-const style = {
-  backgroundImage:`url(${product})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  height: "18rem",
-}
-const Recommended = () => {
+const Recommended = (props) => {
+    const { recommended } = props?.items?.data || {};
     return (<>
         <main>
           <h2 className="pb-2 ">Recommended Items</h2>
           <Row className="mb-3 ">   
-            { _.range(1,5).map( (item, key) => {
+            { recommended?.length &&
+              recommended?.map( (item, key) => {
+
+              const style = {
+                backgroundImage:`url(${item?.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "18rem",
+              }
               return (<React.Fragment key={key}>
                 <Col xs={12} sm={6} md={4} lg={3}>
                   <Card className="mb-4 p-2" >
                     <div className="product-display" >
-                      <div className="product-display-img" style={style}></div>
+                      <div className="product-display-img" style={style}>
+                      </div>
                     </div>
                     <Card.Body>
-                      <Card.Title>Card Title {item}</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                      <Card.Title>{ item?.name }</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">{ item?.description }</Card.Subtitle>
                       <Card.Text>
-                        $99
+                        ${ item?.price }
                       </Card.Text>
                       <button className="button button-small black-button" type="button">Add To Basket</button>
                     </Card.Body>
@@ -37,4 +41,7 @@ const Recommended = () => {
         </main>
     </>)
 }
-export default Recommended;
+const mapStateToProps = ( state ) => ({
+  items: state.items
+}); 
+export default connect( mapStateToProps, null )(Recommended)

@@ -9,6 +9,8 @@ const DefaultLayout = (props) => {
     useEffect(() => {
         props.fetchItems()
     },[]);
+
+    console.log(props.items)
     return <Container className="py-3 default-layout">    
                 <Header />
                 { props.children }
@@ -16,9 +18,10 @@ const DefaultLayout = (props) => {
             </Container>
 }
 const mapStateToProps = ( state ) => ({
-    cart : state.cart_data 
- });
- const mapDispatchToProps = (dispatch) => ({
-    fetchItems  : () => dispatch( fetchItems() ),
- });
- export default connect( mapStateToProps, mapDispatchToProps )(DefaultLayout)
+    cart : state.cart_data,
+    items: state.items
+});
+const mapDispatchToProps = (dispatch) => ({
+fetchItems  : () => dispatch( fetchItems() ),
+});
+export default connect( mapStateToProps, mapDispatchToProps )(DefaultLayout)

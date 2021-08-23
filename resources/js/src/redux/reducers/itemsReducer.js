@@ -1,7 +1,8 @@
 import { itemsConstants } from '../constants';
 
 const initialState = {
-    data : []
+    loading: false,
+    data : {},
 };
 export const itemsReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -9,13 +10,13 @@ export const itemsReducer = (state = initialState, action) => {
             return { 
                 ...state,
                 loading: true,
-                data: []
+                data: {}
             };
         case itemsConstants.GET_ITEMS_SUCCESS:
             return { 
                 ...state,
                 loading: false,
-                data: [ ...state.data, action.payload] 
+                data: action.payload
             };
         default:
             return state;
