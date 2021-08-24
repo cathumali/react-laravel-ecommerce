@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Col, Card } from 'react-bootstrap';
 import { addToBasket, removeItemFromCart } from '../../redux/actions';
+import { toast } from 'react-toastify';
 
 const isAddedToCart = ( item, cart_items ) => {
     let added = [];
@@ -22,6 +23,24 @@ const ShopItemsCard = ( props ) => {
         backgroundPosition: "center",
         height: "18rem",
     }
+
+    const notify = () => {
+        toast.success('Item has been added to your shopping Cart', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
+    const addToBasket = () => {
+        notify();
+        props.addToBasket(props.item)
+    }
+
     return (<React.Fragment >
         <Col xs={12} sm={6} xl={3}>
           <Card className="mb-4 p-2" >
@@ -46,7 +65,7 @@ const ShopItemsCard = ( props ) => {
                     <button 
                         className="button button-small black-button" 
                         type="button"
-                        onClick={()=>props.addToBasket(props.item)}
+                        onClick={addToBasket}
                     >Add To Basket
                     </button>
                 }
