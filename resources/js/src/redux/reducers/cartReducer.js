@@ -16,6 +16,11 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 data: filered
             }; 
+        case cartConstants.DELETE_CART_ITEMS:
+            return { 
+                ...state,
+                data: [] 
+            };
         default:
             return state;
     }

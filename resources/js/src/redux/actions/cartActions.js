@@ -8,3 +8,7 @@ export const addToBasket = (item) => dispatch => {
 export const removeItemFromCart = (item_id) => dispatch => {
     dispatch({ type:cartConstants.REMOVE_ITEM_FROM_CART, payload: item_id });
 }
+
+export const deleteCartItems = () => dispatch => {
+    dispatch({ type:cartConstants.DELETE_CART_ITEMS });
+}
