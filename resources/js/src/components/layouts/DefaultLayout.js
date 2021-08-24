@@ -12,7 +12,7 @@ const DefaultLayout = (props) => {
 
     console.log(props.items)
     return <Container className="py-3 default-layout">    
-                <Header />
+                <Header cart={props.cart}/>
                 { props.children }
                 <Footer />
             </Container>
@@ -22,6 +22,6 @@ const mapStateToProps = ( state ) => ({
     items: state.items
 });
 const mapDispatchToProps = (dispatch) => ({
-fetchItems  : () => dispatch( fetchItems() ),
+    fetchItems  : () => dispatch( fetchItems() ),
 });
 export default connect( mapStateToProps, mapDispatchToProps )(DefaultLayout)
