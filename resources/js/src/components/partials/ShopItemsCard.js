@@ -23,7 +23,7 @@ const ShopItemsCard = ( props ) => {
         height: "18rem",
     }
     return (<React.Fragment >
-        <Col xs={12} sm={6} md={4} lg={3}>
+        <Col xs={12} sm={6} xl={3}>
           <Card className="mb-4 p-2" >
             <div className="product-display" >
               <div className="product-display-img" style={style}>
