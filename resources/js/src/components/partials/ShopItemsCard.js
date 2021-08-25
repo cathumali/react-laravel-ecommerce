@@ -25,7 +25,7 @@ const ShopItemsCard = ( props ) => {
     }
 
     const notify = () => {
-        toast.success('Item has been added to your shopping Cart', {
+        toast.dark('Item has been added to your shopping Cart', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,

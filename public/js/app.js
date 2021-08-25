@@ -5095,7 +5095,7 @@ function Index() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_16__.ToastContainer, {
       position: "top-center",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       newestOnTop: false,
       closeOnClick: true,
       rtl: false,
@@ -6447,7 +6447,7 @@ var ShopItemsCard = function ShopItemsCard(props) {
   };
 
   var notify = function notify() {
-    react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.success('Item has been added to your shopping Cart', {
+    react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.dark('Item has been added to your shopping Cart', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
