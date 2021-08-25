@@ -3,9 +3,13 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Row } from 'react-bootstrap';
 import ShopItemsCard from '../partials/ShopItemsCard';
+import Loader from '../partials/Loader';
 
 const Shop = (props) => {
     const { shop } = props?.items?.data || {};
+    if( props?.items?.loading ) {
+      return <Loader />
+    }
     return (<>
         <main>
           <Row className="mb-3 ">   

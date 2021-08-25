@@ -22,13 +22,17 @@ const ShopItemsCard = ( props ) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "18rem",
-    }
+    } 
 
     const notify = () => {
-        toast.dark('Item has been added to your shopping Cart', {
+        const svg = <>
+            <svg width={25}className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Item has been added to your shopping Cart!
+        </>
+        toast.success(svg, {
             position: "top-center",
             autoClose: 5000,
-            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
