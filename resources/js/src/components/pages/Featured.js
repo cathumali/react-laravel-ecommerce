@@ -7,13 +7,11 @@ import Loader from '../partials/Loader';
 
 const Featured = (props) => {
   const { featured } = props?.items?.data || {};
-  if( props?.items?.loading ) {
-    return <Loader />
-  }
   return (<>
         <main>
-          <h2 className="pb-2 ">Featured Items</h2>
-          <Row className="mb-3 ">   
+          <h4 className="fw-bolder mb-4">Featured Items</h4>
+          { props?.items?.loading && <Loader /> }
+          <Row className="mb-3 gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">   
             { featured?.length &&
               featured?.map( (item, key) => <ShopItemsCard item={item} key={key} /> )
             }

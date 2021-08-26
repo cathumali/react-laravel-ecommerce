@@ -15,8 +15,8 @@ class ItemsController extends BaseController
         $shop = Items::all();
         $items =[
             'shop' => $shop,
-            'featured' => $shop->slice(0, 6),
-            'recommended' => $shop->slice(7, 13),
+            'featured' => $shop->slice(0, 4),
+            'recommended' => $shop->slice(7, 4),
         ];
         return $this->sendResponse(ItemsResource::collection($items), 'Items fetched.');
     }

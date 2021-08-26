@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Col, Card } from 'react-bootstrap';
 import { addToBasket, removeItemFromCart } from '../../redux/actions';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const isAddedToCart = ( item, cart_items ) => {
     let added = [];
@@ -47,36 +48,45 @@ const ShopItemsCard = ( props ) => {
 
     return (<React.Fragment >
         <Col xs={12} sm={6} xl={3}>
-          <Card className="mb-4 p-2" >
-            <div className="product-display" >
-              <div className="product-display-img" style={style}>
-              </div>
-            </div>
-            <Card.Body>
-                <Card.Title>{ props?.item?.name }</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{ props?.item?.description }</Card.Subtitle>
-                <Card.Text>
-                    ${ props?.item?.price }
-                </Card.Text>
-                { added_to_cart ? 
-                    <button 
-                        className="button button-small black-button" 
-                        type="button"
-                        onClick={()=>props.removeItemFromCart(props.item?.id)}
-                    >Remove from Cart
-                    </button>
-                    : 
-                    <button 
-                        className="button button-small black-button" 
-                        type="button"
-                        onClick={addToBasket}
-                    >Add To Basket
-                    </button>
-                }
-            </Card.Body>
-          </Card>
+            <Link 
+                // to={`/item/${props?.item?.id}`} 
+                className="text-decoration-none"
+                to={{
+                    pathname: `/item/${props?.item?.id}` ,
+                    item_details: props.item
+                   }} 
+                >
+                <Card className="mb-4 p-2" >
+                    <div className="product-display" >
+                        <div className="product-display-img" style={style}></div>
+                    </div>
+                    <Card.Body>
+                        <Card.Title>{ props?.item?.name }</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{ props?.item?.description }</Card.Subtitle>
+                        {   props.card_type === 'shop' &&
+                            <>  <Card.Text>${ props?.item?.price }</Card.Text>                
+                                { added_to_cart ? 
+                                    <button 
+                                        className="button button-small black-button" 
+                                        type="button"
+                                        onClick={()=>props.removeItemFromCart(props.item?.id)}
+                                    >Remove from Cart
+                                    </button>
+                                    : 
+                                    <button 
+                                        className="button button-small black-button" 
+                                        type="button"
+                                        onClick={addToBasket}
+                                    >Add To Basket
+                                    </button>
+                                }
+                            </>
+                        }
+                    </Card.Body>
+                </Card>
+            </Link>
         </Col>
-      </React.Fragment>)
+    </React.Fragment>)
 }
 
 const mapStateToProps = ( state ) => ({
