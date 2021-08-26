@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Col, Card } from 'react-bootstrap';
-import { addToBasket, removeItemFromCart } from '../../redux/actions';
+import { addToBasket, removeItemFromCart } from '../../redux/actions'; 
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
@@ -43,9 +43,9 @@ const ShopItemsCard = ( props ) => {
 
     const addToBasket = () => {
         notify();
-        props.addToBasket(props.item)
+        props.addToBasket( props.item )
     }
-
+    
     return (<React.Fragment >
         <Col xs={12} sm={6} xl={3}> 
             <Card className="mb-4 p-2" >

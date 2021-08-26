@@ -1,4 +1,5 @@
 import { cartConstants } from '../constants';
+import { setItemInLocalStorage, removeItemFomLocalStorage } from '../../utils';
 
 const initialState = {
     data : []
@@ -6,12 +7,14 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case cartConstants.ADD_ITEM_TO_CART:
+            setItemInLocalStorage( action.payload )
             return { 
                 ...state,
                 data: [ ...state.data, action.payload] 
             };
         case cartConstants.REMOVE_ITEM_FROM_CART:
-            const filered = state.data.filter( item=> item.id !== action.payload )
+            const filered = state.data.filter( item=> item.id !== action.payload );
+            removeItemFomLocalStorage( filered )
             return {
                 ...state,
                 data: filered

@@ -10,7 +10,6 @@ const DefaultLayout = (props) => {
         props.fetchItems()
     },[]);
 
-    console.log(props.items)
     return <Container className="py-3 default-layout">    
                 <Header cart={props.cart}/>
                 { props.children }

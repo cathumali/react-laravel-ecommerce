@@ -6921,7 +6921,6 @@ var DefaultLayout = function DefaultLayout(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     props.fetchItems();
   }, []);
-  console.log(props.items);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
     className: "py-3 default-layout",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Header__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -7054,9 +7053,9 @@ var Cart = function Cart(props) {
                     defaultValue: 1
                   })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
                 className: "text-center text-lg text-medium",
-                children: item === null || item === void 0 ? void 0 : item.price
+                children: ["$", item === null || item === void 0 ? void 0 : item.price]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
                 className: "text-center",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
@@ -8638,6 +8637,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "cartReducer": () => (/* binding */ cartReducer)
 /* harmony export */ });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/src/redux/constants/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./resources/js/src/utils.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8657,6 +8657,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
 var initialState = {
   data: []
 };
@@ -8666,6 +8667,7 @@ var cartReducer = function cartReducer() {
 
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__.cartConstants.ADD_ITEM_TO_CART:
+      (0,_utils__WEBPACK_IMPORTED_MODULE_1__.setItemInLocalStorage)(action.payload);
       return _objectSpread(_objectSpread({}, state), {}, {
         data: [].concat(_toConsumableArray(state.data), [action.payload])
       });
@@ -8674,6 +8676,7 @@ var cartReducer = function cartReducer() {
       var filered = state.data.filter(function (item) {
         return item.id !== action.payload;
       });
+      (0,_utils__WEBPACK_IMPORTED_MODULE_1__.removeItemFomLocalStorage)(filered);
       return _objectSpread(_objectSpread({}, state), {}, {
         data: filered
       });
@@ -8757,6 +8760,45 @@ var itemsReducer = function itemsReducer() {
     default:
       return state;
   }
+};
+
+/***/ }),
+
+/***/ "./resources/js/src/utils.js":
+/*!***********************************!*\
+  !*** ./resources/js/src/utils.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setItemInLocalStorage": () => (/* binding */ setItemInLocalStorage),
+/* harmony export */   "removeItemFomLocalStorage": () => (/* binding */ removeItemFomLocalStorage),
+/* harmony export */   "getItemsFromLocalStorage": () => (/* binding */ getItemsFromLocalStorage)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var setItemInLocalStorage = function setItemInLocalStorage(item) {
+  var prevItems = getItemsFromLocalStorage("cart_items") || [];
+  var mergeItems = [].concat(_toConsumableArray(prevItems), [item]);
+  localStorage.setItem('cart_items', JSON.stringify(mergeItems));
+};
+var removeItemFomLocalStorage = function removeItemFomLocalStorage(items) {
+  localStorage.setItem('cart_items', JSON.stringify(items));
+};
+var getItemsFromLocalStorage = function getItemsFromLocalStorage(name) {
+  return JSON.parse(localStorage.getItem(name)) || [];
 };
 
 /***/ }),

@@ -4,8 +4,9 @@ import { addToBasket, removeItemFromCart, deleteCartItems } from '../../redux/ac
 import { Link } from 'react-router-dom';
 
 const Cart = ( props ) => {
-  const { data } = props.cart || {};
-    return <div className="container padding-bottom-3x mb-1">
+  const { data } = props.cart || {}; 
+
+  return <div className="container padding-bottom-3x mb-1">
     {/* Alert*/}
     <div className="alert alert-info alert-dismissible fade show text-center" style={{"margin-bottom":"30px"}}>
       <span className="alert-close" data-dismiss="alert" /> 
@@ -48,7 +49,7 @@ const Cart = ( props ) => {
                       <input className="form-control text-center" defaultValue={1} />
                     </div>
                   </td>
-                  <td className="text-center text-lg text-medium">{item?.price}</td>
+                  <td className="text-center text-lg text-medium">${item?.price}</td>
                   <td className="text-center">
                     <a className="remove-from-cart" 
                         href="#" 
