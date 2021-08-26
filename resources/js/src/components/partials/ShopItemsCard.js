@@ -47,44 +47,51 @@ const ShopItemsCard = ( props ) => {
     }
 
     return (<React.Fragment >
-        <Col xs={12} sm={6} xl={3}>
-            <Link 
-                // to={`/item/${props?.item?.id}`} 
-                className="text-decoration-none"
-                to={{
-                    pathname: `/item/${props?.item?.id}` ,
-                    item_details: props.item
-                   }} 
+        <Col xs={12} sm={6} xl={3}> 
+            <Card className="mb-4 p-2" >
+                <Link 
+                    className="text-decoration-none"
+                    to={{
+                        pathname: `/item/${props?.item?.id}` ,
+                        item_details: props.item
+                    }} 
                 >
-                <Card className="mb-4 p-2" >
                     <div className="product-display" >
                         <div className="product-display-img" style={style}></div>
                     </div>
-                    <Card.Body>
-                        <Card.Title>{ props?.item?.name }</Card.Title>
+                </Link>
+                <Card.Body>
+                    <Link 
+                        className="text-decoration-none"
+                        to={{
+                            pathname: `/item/${props?.item?.id}` ,
+                            item_details: props.item
+                        }} 
+                    > 
+                        <Card.Title className="text-dark text-capitalize">{ props?.item?.name }</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">{ props?.item?.description }</Card.Subtitle>
-                        {   props.card_type === 'shop' &&
-                            <>  <Card.Text>${ props?.item?.price }</Card.Text>                
-                                { added_to_cart ? 
-                                    <button 
-                                        className="button button-small black-button" 
-                                        type="button"
-                                        onClick={()=>props.removeItemFromCart(props.item?.id)}
-                                    >Remove from Cart
-                                    </button>
-                                    : 
-                                    <button 
-                                        className="button button-small black-button" 
-                                        type="button"
-                                        onClick={addToBasket}
-                                    >Add To Basket
-                                    </button>
-                                }
-                            </>
-                        }
-                    </Card.Body>
-                </Card>
-            </Link>
+                    </Link>
+                    {   props.card_type === 'shop' &&
+                        <>  <Card.Text>${ props?.item?.price }</Card.Text>                
+                            { added_to_cart ? 
+                                <button 
+                                    className="button button-small black-button" 
+                                    type="button"
+                                    onClick={()=>props.removeItemFromCart(props.item?.id)}
+                                >Remove from Cart
+                                </button>
+                                : 
+                                <button 
+                                    className="button button-small black-button" 
+                                    type="button"
+                                    onClick={addToBasket}
+                                >Add To Basket
+                                </button>
+                            }
+                        </>
+                    }
+                </Card.Body>
+            </Card> 
         </Col>
     </React.Fragment>)
 }
