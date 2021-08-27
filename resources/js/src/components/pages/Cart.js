@@ -34,9 +34,9 @@ const Cart = ( props ) => {
                 <tr key={key}>
                   <td>
                     <div className="product-item">
-                      <a className="product-thumb" href="#">
+                      <Link className="product-thumb" to={`/${item?.id}` }>
                         <img src={item?.image} alt="Product" />
-                      </a>
+                      </Link>
                       <div className="product-info">
                         <h4 className="product-title">
                           <a href="#">{item?.name}</a>

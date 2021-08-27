@@ -6,7 +6,7 @@ import ShopItemsCard from '../partials/ShopItemsCard';
 import Loader from '../partials/Loader';
 
 const Recommended = (props) => {
-    const { recommended } = props?.items?.data || {};
+    const { recommended } = props?.items?.items?.data || {};
     return (<>
         <main>
           <h4 className="fw-bolder mb-4">Recommended Items</h4>

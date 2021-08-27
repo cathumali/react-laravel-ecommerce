@@ -6,7 +6,8 @@ import ShopItemsCard from '../partials/ShopItemsCard';
 
 import Loader from '../partials/Loader';
 const Shop = (props) => {
-    const { shop } = props?.items?.data || {};
+    const { shop } = props?.items?.items.data || {};
+    console.log(props)
     if( props?.items?.loading ) {
       return <Loader />
     }

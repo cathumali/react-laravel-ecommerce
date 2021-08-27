@@ -52,8 +52,8 @@ const ShopItemsCard = ( props ) => {
                 <Link 
                     className="text-decoration-none"
                     to={{
-                        pathname: `/item/${props?.item?.id}` ,
-                        item_details: props.item
+                        pathname: `/${props?.item?.id}` ,
+                        state: { item_details: props.item }
                     }} 
                 >
                     <div className="product-display" >
@@ -64,8 +64,8 @@ const ShopItemsCard = ( props ) => {
                     <Link 
                         className="text-decoration-none"
                         to={{
-                            pathname: `/item/${props?.item?.id}` ,
-                            item_details: props.item
+                            pathname: `/${props?.item?.id}` ,
+                            state: { item_details: props.item }
                         }} 
                     > 
                         <Card.Title className="text-dark text-capitalize">{ props?.item?.name }</Card.Title>

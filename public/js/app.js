@@ -6753,7 +6753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Featured__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pages/Featured */ "./resources/js/src/components/pages/Featured.js");
 /* harmony import */ var _components_pages_Recommended__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/Recommended */ "./resources/js/src/components/pages/Recommended.js");
 /* harmony import */ var _components_pages_Shop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/Shop */ "./resources/js/src/components/pages/Shop.js");
-/* harmony import */ var _components_pages_Item__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/Item */ "./resources/js/src/components/pages/Item.js");
+/* harmony import */ var _components_pages_ItemPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/ItemPage */ "./resources/js/src/components/pages/ItemPage.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
@@ -6832,14 +6832,6 @@ function Index() {
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-          name: "item",
-          path: "/item/:id",
-          render: function render(props) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_layouts_DefaultLayout__WEBPACK_IMPORTED_MODULE_5__.default, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_pages_Item__WEBPACK_IMPORTED_MODULE_12__.default, _objectSpread({}, props))
-            });
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
           name: "recommended",
           exact: true,
           path: "/recommended",
@@ -6864,6 +6856,14 @@ function Index() {
           render: function render(props) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_layouts_DefaultLayout__WEBPACK_IMPORTED_MODULE_5__.default, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_pages_Checkout__WEBPACK_IMPORTED_MODULE_8__.default, _objectSpread({}, props))
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+          name: "item",
+          path: "/:id",
+          render: function render(props) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_layouts_DefaultLayout__WEBPACK_IMPORTED_MODULE_5__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_pages_ItemPage__WEBPACK_IMPORTED_MODULE_12__.default, _objectSpread({}, props))
             });
           }
         })]
@@ -7018,9 +7018,9 @@ var Cart = function Cart(props) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "product-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                     className: "product-thumb",
-                    href: "#",
+                    to: "/".concat(item === null || item === void 0 ? void 0 : item.id),
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                       src: item === null || item === void 0 ? void 0 : item.image,
                       alt: "Product"
@@ -7622,9 +7622,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Featured = function Featured(props) {
-  var _props$items, _props$items2;
+  var _props$items, _props$items$items, _props$items2;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : _props$items.data) || {},
+  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : (_props$items$items = _props$items.items) === null || _props$items$items === void 0 ? void 0 : _props$items$items.data) || {},
       featured = _ref.featured;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -7688,10 +7688,10 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ "./resources/js/src/components/pages/Item.js":
-/*!***************************************************!*\
-  !*** ./resources/js/src/components/pages/Item.js ***!
-  \***************************************************/
+/***/ "./resources/js/src/components/pages/ItemPage.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/src/components/pages/ItemPage.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7704,14 +7704,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/src/redux/actions/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils */ "./resources/js/src/utils.js");
+/* harmony import */ var _images_item_placeholder_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/item-placeholder.png */ "./resources/js/src/images/item-placeholder.png");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
+ // import { toast } from 'react-toastify';
+// import { Col, Card } from 'react-bootstrap';
 
- // import RelatedItem from './RelatedItem'; 
+
 
 
 
@@ -7724,7 +7738,7 @@ var isAddedToCart = function isAddedToCart(item, cart_items) {
 
   if (cart_items !== null && cart_items !== void 0 && cart_items.length) {
     added = cart_items === null || cart_items === void 0 ? void 0 : cart_items.filter(function (cart) {
-      return cart.id === item.id;
+      return cart.id === (item === null || item === void 0 ? void 0 : item.id);
     });
   }
 
@@ -7732,90 +7746,81 @@ var isAddedToCart = function isAddedToCart(item, cart_items) {
 };
 
 var Item = function Item(props) {
-  var _props$location;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      item_details = _useState2[0],
+      setItemDetails = _useState2[1];
 
-  var item_details = (_props$location = props.location) === null || _props$location === void 0 ? void 0 : _props$location.item_details;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log('component did mount');
 
-  var _ref = props.cart || {},
-      data = _ref.data;
+    if (!item_details) {
+      var _ref = props.match.params || {},
+          id = _ref.id;
+
+      props.fetchItemDetails(id);
+    }
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!item_details) {
+      var _ref2 = props.item_details || {},
+          _data = _ref2.data;
+
+      if (_data) {
+        setItemDetails(_data);
+      }
+    }
+  });
+
+  var _ref3 = props.cart || {},
+      data = _ref3.data;
 
   var added_to_cart = isAddedToCart(item_details, data);
 
-  var notify = function notify() {
-    var svg = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
-        width: 25,
-        className: "w-6 h-6",
-        fill: "none",
-        stroke: "currentColor",
-        viewBox: "0 0 24 24",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2,
-          d: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-        })
-      }), " Item has been added to your shopping Cart!"]
-    });
-
-    react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.success(svg, {
-      position: "top-center",
-      autoClose: 5000,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    });
-  };
-
   var addToBasket = function addToBasket() {
-    notify();
+    (0,_utils__WEBPACK_IMPORTED_MODULE_4__.notify)();
     props.addToBasket(item_details);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
         className: "py-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "container px-4 px-lg-5 my-5",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "row gx-4 gx-lg-5 align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "col-md-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 className: "card-img-top mb-5 mb-md-0",
-                src: item_details === null || item_details === void 0 ? void 0 : item_details.image,
+                src: (item_details === null || item_details === void 0 ? void 0 : item_details.image) || _images_item_placeholder_png__WEBPACK_IMPORTED_MODULE_5__.default,
                 alt: "..."
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
                 className: "display-5 fw-bolder",
                 children: item_details === null || item_details === void 0 ? void 0 : item_details.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "fs-5 mb-5",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "text-decoration-line-through",
-                  children: "$45.00"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                   children: ["$", item_details === null || item_details === void 0 ? void 0 : item_details.price]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
                 className: "lead",
                 children: item_details === null || item_details === void 0 ? void 0 : item_details.description
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "d-flex",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-                  children: added_to_cart ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                  children: added_to_cart ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
                     className: "button button-small black-button",
                     type: "button",
                     onClick: function onClick() {
                       return props.removeItemFromCart(item_details === null || item_details === void 0 ? void 0 : item_details.id);
                     },
                     children: "Remove from Cart"
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
                     className: "button button-small black-button",
                     type: "button",
                     onClick: addToBasket,
@@ -7833,7 +7838,8 @@ var Item = function Item(props) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    cart: state.cart_data
+    cart: state.cart_data,
+    item_details: state.items.item_details
   };
 };
 
@@ -7844,6 +7850,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     removeItemFromCart: function removeItemFromCart(item_id) {
       return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.removeItemFromCart)(item_id));
+    },
+    fetchItemDetails: function fetchItemDetails(item_id) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.fetchItemDetails)(item_id));
     }
   };
 };
@@ -7882,9 +7891,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Recommended = function Recommended(props) {
-  var _props$items, _props$items2;
+  var _props$items, _props$items$items, _props$items2;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : _props$items.data) || {},
+  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : (_props$items$items = _props$items.items) === null || _props$items$items === void 0 ? void 0 : _props$items$items.data) || {},
       recommended = _ref.recommended;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -7945,8 +7954,10 @@ __webpack_require__.r(__webpack_exports__);
 var Shop = function Shop(props) {
   var _props$items, _props$items2;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : _props$items.data) || {},
+  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : _props$items.items.data) || {},
       shop = _ref.shop;
+
+  console.log(props);
 
   if (props !== null && props !== void 0 && (_props$items2 = props.items) !== null && _props$items2 !== void 0 && _props$items2.loading) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {});
@@ -8393,8 +8404,10 @@ var ShopItemsCard = function ShopItemsCard(props) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
           className: "text-decoration-none",
           to: {
-            pathname: "/item/".concat(props === null || props === void 0 ? void 0 : (_props$item2 = props.item) === null || _props$item2 === void 0 ? void 0 : _props$item2.id),
-            item_details: props.item
+            pathname: "/".concat(props === null || props === void 0 ? void 0 : (_props$item2 = props.item) === null || _props$item2 === void 0 ? void 0 : _props$item2.id),
+            state: {
+              item_details: props.item
+            }
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "product-display",
@@ -8407,8 +8420,10 @@ var ShopItemsCard = function ShopItemsCard(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
             className: "text-decoration-none",
             to: {
-              pathname: "/item/".concat(props === null || props === void 0 ? void 0 : (_props$item3 = props.item) === null || _props$item3 === void 0 ? void 0 : _props$item3.id),
-              item_details: props.item
+              pathname: "/".concat(props === null || props === void 0 ? void 0 : (_props$item3 = props.item) === null || _props$item3 === void 0 ? void 0 : _props$item3.id),
+              state: {
+                item_details: props.item
+              }
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Title, {
               className: "text-dark text-capitalize",
@@ -8516,6 +8531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "addToBasket": () => (/* reexport safe */ _cartActions__WEBPACK_IMPORTED_MODULE_0__.addToBasket),
 /* harmony export */   "deleteCartItems": () => (/* reexport safe */ _cartActions__WEBPACK_IMPORTED_MODULE_0__.deleteCartItems),
 /* harmony export */   "removeItemFromCart": () => (/* reexport safe */ _cartActions__WEBPACK_IMPORTED_MODULE_0__.removeItemFromCart),
+/* harmony export */   "fetchItemDetails": () => (/* reexport safe */ _itemActions__WEBPACK_IMPORTED_MODULE_1__.fetchItemDetails),
 /* harmony export */   "fetchItems": () => (/* reexport safe */ _itemActions__WEBPACK_IMPORTED_MODULE_1__.fetchItems)
 /* harmony export */ });
 /* harmony import */ var _cartActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cartActions */ "./resources/js/src/redux/actions/cartActions.js");
@@ -8534,7 +8550,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fetchItems": () => (/* binding */ fetchItems)
+/* harmony export */   "fetchItems": () => (/* binding */ fetchItems),
+/* harmony export */   "fetchItemDetails": () => (/* binding */ fetchItemDetails)
 /* harmony export */ });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/src/redux/constants/index.js");
 
@@ -8543,7 +8560,7 @@ var fetchItems = function fetchItems() {
     dispatch({
       type: _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_REQUEST
     });
-    apiGetsService().then(function (res) {
+    apiGetItemsService().then(function (res) {
       dispatch({
         type: _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_SUCCESS,
         payload: res === null || res === void 0 ? void 0 : res.data
@@ -8551,8 +8568,21 @@ var fetchItems = function fetchItems() {
     });
   };
 };
+var fetchItemDetails = function fetchItemDetails(id) {
+  return function (dispatch) {
+    dispatch({
+      type: _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEM_DETAILS_REQUEST
+    });
+    apiGetItemDetailsService(id).then(function (res) {
+      dispatch({
+        type: _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEM_DETAILS_SUCCESS,
+        payload: res === null || res === void 0 ? void 0 : res.data
+      });
+    });
+  };
+};
 
-var apiGetsService = function apiGetsService() {
+var apiGetItemsService = function apiGetItemsService() {
   var requestHeaders = {
     method: 'GET',
     headers: {
@@ -8561,6 +8591,19 @@ var apiGetsService = function apiGetsService() {
     }
   };
   return fetch("https://ecommerce-app.test/api/items", requestHeaders).then(function (response) {
+    return response.json();
+  });
+};
+
+var apiGetItemDetailsService = function apiGetItemDetailsService(id) {
+  var requestHeaders = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+  return fetch("https://ecommerce-app.test/api/items/".concat(id), requestHeaders).then(function (response) {
     return response.json();
   });
 };
@@ -8620,7 +8663,9 @@ var itemsConstants = {
   GET_ITEMS_REQUEST: 'GET_ITEMS_REQUEST',
   GET_ITEMS_SUCCESS: 'GET_ITEMS_SUCCESS',
   ADD_ITEM_TO_CART: 'ADD_ITEM_TO_CART',
-  REMOVE_ITEM_FROM_CART: 'REMOVE_ITEM_FROM_CART'
+  REMOVE_ITEM_FROM_CART: 'REMOVE_ITEM_FROM_CART',
+  GET_ITEM_DETAILS_REQUEST: 'GET_ITEM_DETAILS_REQUEST',
+  GET_ITEM_DETAILS_SUCCESS: 'GET_ITEM_DETAILS_SUCCESS'
 };
 
 /***/ }),
@@ -8738,7 +8783,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   loading: false,
-  data: {}
+  items: {},
+  item_details: {}
 };
 var itemsReducer = function itemsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -8747,14 +8793,34 @@ var itemsReducer = function itemsReducer() {
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_REQUEST:
       return _objectSpread(_objectSpread({}, state), {}, {
-        loading: true,
-        data: {}
+        items: _objectSpread(_objectSpread({}, state.data), {}, {
+          loading: true,
+          data: {}
+        })
       });
 
     case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_SUCCESS:
       return _objectSpread(_objectSpread({}, state), {}, {
-        loading: false,
-        data: action.payload
+        items: _objectSpread(_objectSpread({}, state.data), {}, {
+          loading: false,
+          data: action.payload
+        })
+      });
+
+    case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEM_DETAILS_REQUEST:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        item_details: _objectSpread(_objectSpread({}, state.data), {}, {
+          loading: true,
+          data: action.payload
+        })
+      });
+
+    case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEM_DETAILS_SUCCESS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        item_details: _objectSpread(_objectSpread({}, state.data), {}, {
+          loading: false,
+          data: action.payload
+        })
       });
 
     default:
@@ -8775,8 +8841,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setItemInLocalStorage": () => (/* binding */ setItemInLocalStorage),
 /* harmony export */   "removeItemFomLocalStorage": () => (/* binding */ removeItemFomLocalStorage),
-/* harmony export */   "getItemsFromLocalStorage": () => (/* binding */ getItemsFromLocalStorage)
+/* harmony export */   "getItemsFromLocalStorage": () => (/* binding */ getItemsFromLocalStorage),
+/* harmony export */   "notify": () => (/* binding */ notify)
 /* harmony export */ });
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8789,6 +8858,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+
+
+
+
 var setItemInLocalStorage = function setItemInLocalStorage(item) {
   var prevItems = getItemsFromLocalStorage("cart_items") || [];
   var mergeItems = [].concat(_toConsumableArray(prevItems), [item]);
@@ -8799,6 +8872,33 @@ var removeItemFomLocalStorage = function removeItemFomLocalStorage(items) {
 };
 var getItemsFromLocalStorage = function getItemsFromLocalStorage(name) {
   return JSON.parse(localStorage.getItem(name)) || [];
+};
+var notify = function notify() {
+  var svg = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+      width: 25,
+      className: "w-6 h-6",
+      fill: "none",
+      stroke: "currentColor",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeWidth: 2,
+        d: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      })
+    }), " Item has been added to your shopping Cart!"]
+  });
+
+  react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success(svg, {
+    position: "top-center",
+    autoClose: 5000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  });
 };
 
 /***/ }),
@@ -14110,6 +14210,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/img6.png?24468bbff6ec02e159da484db5891cc3");
+
+/***/ }),
+
+/***/ "./resources/js/src/images/item-placeholder.png":
+/*!******************************************************!*\
+  !*** ./resources/js/src/images/item-placeholder.png ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/item-placeholder.png?2263c1628e48a52bc8c470900332bc52");
 
 /***/ }),
 

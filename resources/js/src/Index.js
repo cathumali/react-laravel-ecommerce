@@ -11,7 +11,7 @@ import Checkout from './components/pages/Checkout';
 import Featured from './components/pages/Featured';
 import Recommended from './components/pages/Recommended';
 import Shop from './components/pages/Shop';
-import Item from './components/pages/Item';
+import ItemPage from './components/pages/ItemPage';
 import { ToastContainer } from 'react-toastify';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -38,10 +38,10 @@ function Index() {
               <Route name="home" exact path="/" render={(props)=>(<DefaultLayout ><Home {...props}/></DefaultLayout>)} />
               <Route name="featured" exact path="/featured" render={(props)=>(<DefaultLayout ><Featured {...props}/></DefaultLayout>)} />
               <Route name="shop" exact path="/shop" render={(props)=>(<DefaultLayout ><Shop {...props}/></DefaultLayout>)} />
-              <Route name="item" path="/item/:id" render={(props)=>(<DefaultLayout ><Item {...props}/></DefaultLayout>)} />
               <Route name="recommended" exact path="/recommended" render={(props)=>(<DefaultLayout ><Recommended {...props}/></DefaultLayout>)} />
               <Route name="cart" exact path="/cart" render={(props)=>(<DefaultLayout ><Cart {...props}/></DefaultLayout>)} />
               <Route name="checkout" exact path="/checkout" render={(props)=>(<DefaultLayout ><Checkout {...props}/></DefaultLayout>)} />
+              <Route name="item" path="/:id" render={(props)=>(<DefaultLayout ><ItemPage {...props}/></DefaultLayout>)} />
           </Switch>
       </Router>
     </>);
