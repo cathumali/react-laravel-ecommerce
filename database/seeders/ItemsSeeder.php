@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Items;
+use Illuminate\Support\Str;
 
 class ItemsSeeder extends Seeder
 {
@@ -14,17 +15,21 @@ class ItemsSeeder extends Seeder
      */
     public function run()
     {
-    	$count = 1;
+
+        $faker = \Faker\Factory::create();
+
+
+        $count = 1;
     	while ($count <= 26) {
- 
+            $description = $faker->paragraph;
             $data = [
-                'name' => $this->getRandomString(10),
-                'description' => $this->getRandomString(20),
+                'name' => Str::random(10),
+                'short_description' => Str::of( $description )->limit(40, ' ...'),
+                'description' => $description,
                 'price' => rand(1, 100),
                 'category_id' => rand(1, 4),
                 'image' => '/images/items/product'.$count.'.jpg',
             ];
-
             $items = Items::create($data);
             $count++;
     	}
