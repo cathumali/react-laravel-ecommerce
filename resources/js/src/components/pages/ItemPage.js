@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { addToBasket, removeItemFromCart, fetchItemDetails} from '../../redux/actions';
-// import { toast } from 'react-toastify';
-// import { Col, Card } from 'react-bootstrap';
 import { notify } from '../../utils';
 import placeholder from '../../images/item-placeholder.png';
+import Loader from '../partials/Loader';
 
 const isAddedToCart = ( item, cart_items ) => {
     let added = [];
@@ -42,6 +41,10 @@ const Item = (props) => {
         notify();
         props.addToBasket(item_details)
     }
+
+    if( props.item_details?.loading ) {
+        return <Loader />
+    } 
 
     return(<>
         <div>

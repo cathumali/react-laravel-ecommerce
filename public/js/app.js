@@ -6980,7 +6980,7 @@ var Cart = function Cart(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "alert alert-info alert-dismissible fade show text-center",
       style: {
-        "margin-bottom": "30px"
+        "marginBottom": "30px"
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         className: "alert-close",
@@ -7087,17 +7087,11 @@ var Cart = function Cart(props) {
           })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "shopping-cart-footer",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "column"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "column text-lg",
-        children: ["Subtotal: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "text-medium",
-          children: "$289.68"
-        })]
-      })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "shopping-cart-footer",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -7622,17 +7616,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Featured = function Featured(props) {
-  var _props$items, _props$items$items, _props$items2;
+  var _ref = (props === null || props === void 0 ? void 0 : props.items) || {},
+      items = _ref.items;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : (_props$items$items = _props$items.items) === null || _props$items$items === void 0 ? void 0 : _props$items$items.data) || {},
-      featured = _ref.featured;
+  var _ref2 = (items === null || items === void 0 ? void 0 : items.data) || {},
+      featured = _ref2.featured;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("main", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
         className: "fw-bolder mb-4",
         children: "Featured Items"
-      }), (props === null || props === void 0 ? void 0 : (_props$items2 = props.items) === null || _props$items2 === void 0 ? void 0 : _props$items2.loading) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+      }), (items === null || items === void 0 ? void 0 : items.loading) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
         className: "mb-3 gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ",
         children: (featured === null || featured === void 0 ? void 0 : featured.length) && (featured === null || featured === void 0 ? void 0 : featured.map(function (item, key) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_ShopItemsCard__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -7706,7 +7701,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/src/redux/actions/index.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils */ "./resources/js/src/utils.js");
 /* harmony import */ var _images_item_placeholder_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/item-placeholder.png */ "./resources/js/src/images/item-placeholder.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _partials_Loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../partials/Loader */ "./resources/js/src/components/partials/Loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7722,8 +7718,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import { toast } from 'react-toastify';
-// import { Col, Card } from 'react-bootstrap';
+
 
 
 
@@ -7746,6 +7741,8 @@ var isAddedToCart = function isAddedToCart(item, cart_items) {
 };
 
 var Item = function Item(props) {
+  var _props$item_details;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       item_details = _useState2[0],
@@ -7782,45 +7779,49 @@ var Item = function Item(props) {
     props.addToBasket(item_details);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
+  if ((_props$item_details = props.item_details) !== null && _props$item_details !== void 0 && _props$item_details.loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_6__.default, {});
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("section", {
         className: "py-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "container px-4 px-lg-5 my-5",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "row gx-4 gx-lg-5 align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "col-md-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
                 className: "card-img-top mb-5 mb-md-0",
                 src: (item_details === null || item_details === void 0 ? void 0 : item_details.image) || _images_item_placeholder_png__WEBPACK_IMPORTED_MODULE_5__.default,
                 alt: "..."
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
                 className: "display-5 fw-bolder",
                 children: item_details === null || item_details === void 0 ? void 0 : item_details.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "fs-5 mb-5",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
                   children: ["$", item_details === null || item_details === void 0 ? void 0 : item_details.price]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
                 className: "lead",
                 children: item_details === null || item_details === void 0 ? void 0 : item_details.description
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "d-flex",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-                  children: added_to_cart ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+                  children: added_to_cart ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
                     className: "button button-small black-button",
                     type: "button",
                     onClick: function onClick() {
                       return props.removeItemFromCart(item_details === null || item_details === void 0 ? void 0 : item_details.id);
                     },
                     children: "Remove from Cart"
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
                     className: "button button-small black-button",
                     type: "button",
                     onClick: addToBasket,
@@ -7891,17 +7892,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Recommended = function Recommended(props) {
-  var _props$items, _props$items$items, _props$items2;
+  var _ref = (props === null || props === void 0 ? void 0 : props.items) || {},
+      items = _ref.items;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : (_props$items$items = _props$items.items) === null || _props$items$items === void 0 ? void 0 : _props$items$items.data) || {},
-      recommended = _ref.recommended;
+  var _ref2 = (items === null || items === void 0 ? void 0 : items.data) || {},
+      recommended = _ref2.recommended;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("main", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
         className: "fw-bolder mb-4",
         children: "Recommended Items"
-      }), (props === null || props === void 0 ? void 0 : (_props$items2 = props.items) === null || _props$items2 === void 0 ? void 0 : _props$items2.loading) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+      }), (items === null || items === void 0 ? void 0 : items.loading) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
         className: "mb-3 gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4",
         children: Boolean(recommended === null || recommended === void 0 ? void 0 : recommended.length) && (recommended === null || recommended === void 0 ? void 0 : recommended.map(function (item, key) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_ShopItemsCard__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -7952,14 +7954,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Shop = function Shop(props) {
-  var _props$items, _props$items2;
+  var _ref = (props === null || props === void 0 ? void 0 : props.items) || {},
+      items = _ref.items;
 
-  var _ref = (props === null || props === void 0 ? void 0 : (_props$items = props.items) === null || _props$items === void 0 ? void 0 : _props$items.items.data) || {},
-      shop = _ref.shop;
+  var _ref2 = (items === null || items === void 0 ? void 0 : items.data) || {},
+      shop = _ref2.shop;
 
-  console.log(props);
-
-  if (props !== null && props !== void 0 && (_props$items2 = props.items) !== null && _props$items2 !== void 0 && _props$items2.loading) {
+  if (items !== null && items !== void 0 && items.loading) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_partials_Loader__WEBPACK_IMPORTED_MODULE_4__.default, {});
   }
 
@@ -8430,7 +8431,7 @@ var ShopItemsCard = function ShopItemsCard(props) {
               children: props === null || props === void 0 ? void 0 : (_props$item4 = props.item) === null || _props$item4 === void 0 ? void 0 : _props$item4.name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Subtitle, {
               className: "mb-2 text-muted",
-              children: props === null || props === void 0 ? void 0 : (_props$item5 = props.item) === null || _props$item5 === void 0 ? void 0 : _props$item5.description
+              children: props === null || props === void 0 ? void 0 : (_props$item5 = props.item) === null || _props$item5 === void 0 ? void 0 : _props$item5.short_description
             })]
           }), props.card_type === 'shop' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
             children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Text, {
@@ -8782,9 +8783,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var initialState = {
-  loading: false,
-  items: {},
-  item_details: {}
+  items: {
+    loading: false,
+    data: null
+  },
+  item_details: {
+    loading: false,
+    data: null
+  }
 };
 var itemsReducer = function itemsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -8793,10 +8799,10 @@ var itemsReducer = function itemsReducer() {
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_REQUEST:
       return _objectSpread(_objectSpread({}, state), {}, {
-        items: _objectSpread(_objectSpread({}, state.data), {}, {
+        items: {
           loading: true,
-          data: {}
-        })
+          data: null
+        }
       });
 
     case _constants__WEBPACK_IMPORTED_MODULE_0__.itemsConstants.GET_ITEMS_SUCCESS:
@@ -8811,7 +8817,7 @@ var itemsReducer = function itemsReducer() {
       return _objectSpread(_objectSpread({}, state), {}, {
         item_details: _objectSpread(_objectSpread({}, state.data), {}, {
           loading: true,
-          data: action.payload
+          data: null
         })
       });
 

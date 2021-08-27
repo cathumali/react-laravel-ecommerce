@@ -8,7 +8,7 @@ const Cart = ( props ) => {
 
   return <div className="container padding-bottom-3x mb-1">
     {/* Alert*/}
-    <div className="alert alert-info alert-dismissible fade show text-center" style={{"margin-bottom":"30px"}}>
+    <div className="alert alert-info alert-dismissible fade show text-center" style={{"marginBottom":"30px"}}>
       <span className="alert-close" data-dismiss="alert" /> 
       &nbsp;&nbsp;Your shopping cart.
     </div>
@@ -72,7 +72,7 @@ const Cart = ( props ) => {
     <div className="shopping-cart-footer">
       <div className="column"> 
       </div>
-      <div className="column text-lg">Subtotal: <span className="text-medium">$289.68</span></div>
+      {/* <div className="column text-lg">Subtotal: <span className="text-medium">$289.68</span></div> */}
     </div>
     <div className="shopping-cart-footer">
       <div className="column">

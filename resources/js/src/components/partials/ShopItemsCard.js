@@ -69,7 +69,7 @@ const ShopItemsCard = ( props ) => {
                         }} 
                     > 
                         <Card.Title className="text-dark text-capitalize">{ props?.item?.name }</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{ props?.item?.description }</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{ props?.item?.short_description }</Card.Subtitle>
                     </Link>
                     {   props.card_type === 'shop' &&
                         <>  <Card.Text>${ props?.item?.price }</Card.Text>                

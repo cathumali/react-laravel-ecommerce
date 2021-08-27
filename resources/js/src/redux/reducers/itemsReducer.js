@@ -1,9 +1,14 @@
 import { itemsConstants } from '../constants';
 
 const initialState = {
-    loading: false,
-    items : {},
-    item_details : {},
+    items: { 
+        loading: false, 
+        data: null 
+    },
+    item_details : { 
+        loading: false, 
+        data: null 
+    },
 };
 export const itemsReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,9 +16,8 @@ export const itemsReducer = (state = initialState, action) => {
             return { 
                 ...state,                
                 items: { 
-                    ...state.data, 
                     loading: true, 
-                    data: {} 
+                    data: null 
                 }
             };
         case itemsConstants.GET_ITEMS_SUCCESS:
@@ -27,11 +31,11 @@ export const itemsReducer = (state = initialState, action) => {
             };
         case itemsConstants.GET_ITEM_DETAILS_REQUEST:
             return { 
-                ...state,                
+                ...state,
                 item_details: { 
                     ...state.data, 
                     loading: true,
-                    data : action.payload
+                    data : null
                 }
             };
         case itemsConstants.GET_ITEM_DETAILS_SUCCESS:
