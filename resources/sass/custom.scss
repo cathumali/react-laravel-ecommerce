@@ -1,0 +1,60 @@
+$theme_color : #0ea9c5 ;
+body.page-content {
+   font-family: Montserrat, sans-serif;
+   color: #535353;
+   ._2columns {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+   }
+   .nav__bar {
+      header {
+         ul {
+            li.nav-item{
+               .nav-link { 
+                  font-weight: 700;
+                  color: #535353;
+                  &:hover {
+                     color: $theme_color;
+                  }
+               }
+               button {
+                  border-radius: 0;
+                  color: $theme_color;
+                  border-color: $theme_color;
+                  &:hover {
+                     background-color: $theme_color;
+                     color: #fff;
+                  }
+               }
+            }
+         }
+      }
+   }
+   #banner {
+      .header__cover {
+         img {
+            width: 100%;
+         }
+      }
+   }
+   .container.contents {
+      .list__group {
+         .list__title {
+            h4 {
+               background-color: $theme_color;
+               color: #fff;
+               border-radius: 50rem;
+               font-weight: 800;
+               width: fit-content;
+               margin: 0 auto;
+            }
+         }
+         ul {
+            li {
+               font-size: 1.2rem;
+            }
+         }
+      }
+   }
+}
