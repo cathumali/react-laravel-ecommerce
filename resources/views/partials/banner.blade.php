@@ -3,7 +3,7 @@
         <img 
             src="{{ URL::asset('assets/images/school/banner.jpg') }}"   
             style="background-color:#dddddd;" 
-            class="header__cover__image img-fluid mb-5" 
+            class="header__cover__image img-fluid mb-4" 
             alt="School Image banner"
         >
         <img 

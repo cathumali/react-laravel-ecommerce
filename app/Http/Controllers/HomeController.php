@@ -18,7 +18,7 @@ class HomeController extends Controller
         ];   
         $data['trainings'] = [
             'Sensory Integration & Practices (SIPT)',
-            'Search and Teach (for pre-schoolers and risk for or have learning difficulties)',
+            'Search and Teach® (for pre-schoolers and risk for or have learning difficulties)',
             'Hanen; PROMPT',
             'Braille',
         ];

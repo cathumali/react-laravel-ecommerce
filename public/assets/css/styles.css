@@ -11269,10 +11269,10 @@ textarea.form-control-lg {
   }
 }
 body.page-content {
-  font-family: Montserrat, sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #535353;
 }
-body.page-content ._2columns {
+body.page-content .list_columns {
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
@@ -11308,4 +11308,85 @@ body.page-content .container.contents .list__group .list__title h4, body.page-co
 }
 body.page-content .container.contents .list__group ul li {
   font-size: 1.2rem;
+}
+body.page-content .container.before-footer img {
+  width: 100%;
+}
+body.page-content footer {
+  background-color: #3199cc;
+  color: #fff;
+}
+body.page-content footer .footer.container {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+body.page-content footer .footer.container .row ul li.nav-item a.nav-link {
+  color: #fff;
+}
+body.page-content footer #scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 8%;
+  z-index: 99;
+  outline: none;
+  background-color: #3199cc;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 0;
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  padding: 0;
+}
+
+@media (max-width: 991.99px) {
+  body.page-content .container.contents .list__group .list__title h4, body.page-content .container.contents .list__group .list__title .h4 {
+    font-size: 1.2em;
+  }
+  body.page-content .container.contents .list__group ul li {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 767.99px) {
+  body.page-content .container.nav__bar {
+    max-width: 100%;
+  }
+  body.page-content .container.before-footer .d-flex.align-items-center {
+    height: 14em;
+    text-align: center;
+  }
+  body.page-content .container.contents .list__group .list__title h4, body.page-content .container.contents .list__group .list__title .h4 {
+    font-size: 0.9em;
+  }
+  body.page-content .container.contents .list__group ul li {
+    font-size: 0.8rem;
+  }
+  body.page-content footer {
+    padding: 0 3em;
+  }
+  body.page-content footer .footer.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body.page-content footer .footer.container .row ul li.nav-item a.nav-link {
+    color: #fff;
+  }
+}
+@media (max-width: 575.99px) {
+  body.page-content .list_columns {
+    columns: auto;
+    -webkit-columns: auto;
+    -moz-columns: auto;
+  }
+}
+@media (max-width: 475.99px) {
+  body.page-content .list_columns {
+    columns: auto;
+    -webkit-columns: auto;
+    -moz-columns: auto;
+  }
+  body.page-content footer {
+    padding: 0 1em;
+  }
 }

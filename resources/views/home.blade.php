@@ -18,9 +18,9 @@
          <div class="col ">
             <div class="list__group pt-4">
                <div class="text-center mb-4 list__title"> 
-                  <h4 class="px-4 py-2">We provide</h4>
+                  <h4 class="px-4 py-2">We provide:</h4>
                </div>
-               <ul class="_2columns">
+               <ul class="list_columns">
                   @if( count($services) )
                         @foreach($services as $service)
                            <li class="fw-bold">{{ $service }}</li>
@@ -33,7 +33,7 @@
                <div class="text-center mb-4 list__title"> 
                   <h4 class="px-4 py-2">Our Staff have certifications/ Special Training</h4>
                </div>
-               <ul class="_2columns">
+               <ul class="list_columns">
                   @if( count($trainings) )
                         @foreach($trainings as $training)
                            <li class="fw-bold">{{ $training }}</li>
@@ -59,17 +59,17 @@
 
    </div>
    
-   <div class="container">
+   <div class="container before-footer">
       <div class="row">
-         <div class="col">
+         <div class="col-12 col-md-6 d-flex align-items-center">
             <h2 class="col fst-italic fw-bold">
-               Life Skills Therapy Center <br>
-               is a foundation center of <br>
-               Thera-Free: Libreng Therapy <br>
+               Life Skills Therapy Center
+               is a foundation center of
+               Thera-Free: Libreng Therapy
                para sa  Pilipino
             </h2>
          </div>
-         <div class="col">
+         <div class="col-12 col-md-6">
             <img 
                src="{{ URL::asset('assets/images/school/image-2.jpg') }}"   
                class="img-fluid" 
@@ -78,11 +78,4 @@
          </div>
       </div>
    </div>
-
-   @push('scripts') 
-   <script> 
-   </script>
-
-   @endpush
-
 @endsection

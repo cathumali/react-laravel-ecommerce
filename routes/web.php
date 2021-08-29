@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 // To enable react view
 // Route::view('/{path?}', 'index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/home', function () {
-//     return view('home');
+// Route::get('/', function () {
+//     return view('welcome');
 // });
-Route::resource('home', 'Homecontroller');
+ 
+Route::resource('/', 'Homecontroller');
